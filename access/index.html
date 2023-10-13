@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Request access to GigaChat</title>
+<style>*{margin:0;padding:0;} html,body,iframe{border-radius:0 !important;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script>
+function getUrlParameter(e){let t=new URL(window.location.toLocaleString()),r=new URL(t).searchParams,a=r.get(e);return null===a?null:a.replace(/-/g,"+").replace(/_/g,"/").padEnd(4*Math.ceil(a.length/4),"=")}function decrypt(e,t,r){let a=CryptoJS.enc.Hex.parse(t),n=CryptoJS.enc.Hex.parse(r),d=CryptoJS.AES.decrypt(e,a,{iv:n});return d.toString(CryptoJS.enc.Utf8)}function getDecryptedValues(){let e=getUrlParameter("id"),t=decrypt(e,"7d6ae4da54e28721671173df43d20afb485ca4764c51078a406f78114779b366","a1b7c311fb48a69e058069fdd1fdde28"),[r,a]=t.split("--");return{groupId:r,groupName:a}}document.addEventListener("DOMContentLoaded",function(){let{groupId:e,groupName:t}=getDecryptedValues(),r=document.querySelector("[data-tf-widget]");r.dataset.tfHidden=`group_id=${e||""},group_name=${t||""}`});
+</script>
+</head>
+<body>
+<div data-tf-widget="MDMnFFrr" data-tf-opacity="100" data-tf-inline-on-mobile data-tf-iframe-props="title=Request access to GigaChat" data-tf-transitive-search-params data-tf-auto-focus data-tf-medium="snippet" data-tf-full-screen></div><script src="//embed.typeform.com/next/embed.js"></script>
+</body>
+</html>
